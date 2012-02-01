@@ -186,5 +186,19 @@ app.get('/challenge/:id/categories', function(req, res){
 
  });
 
+app.get('/challenge/:id/assets', function(req, res){
+
+	var output = [{"attributes":{"type":"Challenge__c","url":"/services/data/v23.0/sobjects/Challenge__c/a0GU0000001O8JzMAK"},"Id":"a0GU0000001O8JzMAK","Attachments":{"totalSize":2,"done":true,"records":[{"attributes":{"type":"Attachment","url":"/services/data/v23.0/sobjects/Attachment/00PU0000000T4IWMA0"},"Id":"00PU0000000T4IWMA0","Name":"gene-mas-cleaned.pdf"},{"attributes":{"type":"Attachment","url":"/services/data/v23.0/sobjects/Attachment/00PU0000000T4IbMAK"},"Id":"00PU0000000T4IbMAK","Name":"Project Entry Design Doc.pdf"}]}}]
+	var body = JSON.stringify(output);
+
+	res.writeHead(200, {
+	  "Content-Type": "application/json",
+	  "Access-Control-Allow-Origin": "*"
+	});
+
+	res.end(body);
+
+ });
+
 app.listen(3001);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
